@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/uniqueID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="28dp"
+        android:hint="UID"
+        android:inputType="numberSigned"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/firstName"
+        app:layout_constraintStart_toStartOf="@+id/firstName" />
+
+    <EditText
+        android:id="@+id/firstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="135dp"
+        android:hint="First Name"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="31dp"
+        android:hint="Last Name"
+        android:inputType="text"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="@+id/firstName"
+        app:layout_constraintTop_toTopOf="@+id/firstName" />
+
+    <EditText
+        android:id="@+id/rewards"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="30dp"
+        android:hint="Rewards"
+        android:inputType="numberSigned"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="@+id/lastName"
+        app:layout_constraintTop_toTopOf="@+id/lastName" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="8dp"
+        android:text="Add"
+        app:layout_constraintStart_toStartOf="@+id/rewards"
+        app:layout_constraintTop_toBottomOf="@+id/rewards" />
+
+    <Button
+        android:id="@+id/displayInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:text="Display Info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Delete"
+        app:layout_constraintBaseline_toBaselineOf="@+id/displayInfo"
+        app:layout_constraintStart_toEndOf="@+id/displayInfo" />
+
+    <EditText
+        android:id="@+id/search"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="28dp"
+        android:hint="Enter ID Here"
+        android:inputType="numberSigned"
+        app:layout_constraintBottom_toTopOf="@+id/infoResults"
+        app:layout_constraintStart_toStartOf="@+id/displayInfo"
+        app:layout_constraintTop_toBottomOf="@+id/displayInfo" />
+
+    <TextView
+        android:id="@+id/infoResults"
+        android:layout_width="304dp"
+        android:layout_height="181dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginBottom="75dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
