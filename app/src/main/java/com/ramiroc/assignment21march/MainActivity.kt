@@ -3,6 +3,7 @@ package com.ramiroc.assignment21march
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -38,20 +39,27 @@ class MainActivity : AppCompatActivity() {
             val cursor = db.getContact(searchID.text.toString())
 
             if (cursor != null) {
+                Log.i("Display", "Moving cursor")
                 cursor!!.moveToFirst()
                 val stringBuffer = StringBuffer()
 
                 stringBuffer.append("UID:" + cursor.getInt(0).toString() + "\n")
-                stringBuffer.append("First Name:" + cursor.getInt(1).toString() + "\n")
-                stringBuffer.append("Last Name:" + cursor.getInt(2).toString() + "\n")
+                stringBuffer.append("First Name:" + cursor.getString(1).toString() + "\n")
+                stringBuffer.append("Last Name:" + cursor.getString(2).toString() + "\n")
                 stringBuffer.append("Rewards: " + cursor.getInt(3).toString() + "\n\n")
 
                 infoResults!!.text =stringBuffer.toString()
                     //cursor.getString(cursor.getColumnIndex(cursor.columnNames.toString()))
 
             } else {
-                Toast.makeText(this, "Please input valid id (1-99)", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Please input valid input", Toast.LENGTH_LONG).show()
             }
+        }
+
+        deleteButton.setOnClickListener {
+            val db = DBHelper(this, null)
+            db.delete(searchID.text.toString())
+            Toast.makeText(this, "Successfully deleted.", Toast.LENGTH_LONG).show()
         }
 
     }
